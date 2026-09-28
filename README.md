@@ -1,6 +1,6 @@
 # Umayyad Strike — ضربة الأمويين
 
-لعبة تكتيكية 5 ضد 5 على نمط Counter-Strike (زرع/تفكيك العبوة) تدور في **ساحة الأمويين في دمشق**، مبنية على **Unreal Engine 5.5** بلغة C++ مع أنظمة الرسوميات الحديثة: Lumen (إضاءة عامة وانعكاسات بتتبع الأشعة) و Nanite و Virtual Shadow Maps و TSR.
+لعبة تكتيكية 5 ضد 5 على نمط Counter-Strike (زرع/تفكيك العبوة) تدور في **ساحة الأمويين في دمشق**، مبنية على **Unreal Engine 5.8** بلغة C++ مع أنظمة الرسوميات الحديثة: Lumen (إضاءة عامة وانعكاسات بتتبع الأشعة) و Nanite و Virtual Shadow Maps و TSR.
 
 ## التشغيل لأول مرة
 
@@ -8,7 +8,7 @@
 
 **الطريقة اليدوية:**
 
-1. ثبّت **Unreal Engine 5.5** (أو أحدث) و **Visual Studio 2022** مع حزمة "Game development with C++".
+1. ثبّت **Unreal Engine 5.8** و **Visual Studio 2022** مع حزمة "Game development with C++".
 2. انسخ المجلد إلى `D:\New folder (5)` (أو أي مسار)، ثم انقر بالزر الأيمن على `UmayyadStrike.uproject` ← **Generate Visual Studio project files**.
 3. افتح `UmayyadStrike.uproject` ووافق على بناء الوحدة (Build). يُفضّل بطاقة تدعم DX12 / SM6 وتتبع الأشعة (RTX 2070 فما فوق).
 4. داخل المحرر: **Tools ← Execute Python Script** واختر `Content/Python/build_umayyad_square.py`.
@@ -87,5 +87,5 @@ Content/Python/build_umayyad_square.py   باني الخريطة
 
 ## ملاحظات
 
-- الكود مكتوب لـ UE 5.5؛ إن ظهر خطأ بناء أرسل `Saved\build_log.txt` ليُصلَح.
+- المشروع مضبوط على UE 5.8؛ إن ظهر خطأ بناء أرسل `Saved\build_log.txt` ليُصلَح.
 - إسقاط العبوة فيزيائياً عند موت حاملها، والقنابل اليدوية (دخان/وميض/حارقة)، ونظام البوتات — هي الخطوات التالية المقترحة.

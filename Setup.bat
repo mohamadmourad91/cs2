@@ -2,14 +2,21 @@
 setlocal
 rem ============================================================
 rem  Umayyad Strike - one-click build + map generation (Windows)
-rem  Usage:  Setup.bat                      (auto-detects D:\unreal, then Program Files)
+rem  Usage:  Setup.bat                      (auto-detects UE_5.8 in D:\Program Files\Epic Games)
 rem          Setup.bat "D:\Epic\UE_5.5"      (custom engine path)
 rem ============================================================
 set "PROJ=%~dp0UmayyadStrike.uproject"
 set "UE=%~1"
-if "%UE%"=="" if exist "D:\unreal\Engine\Build\BatchFiles\Build.bat" set "UE=D:\unreal"
-if "%UE%"=="" for %%V in (5.7 5.6 5.5) do if "%UE%"=="" if exist "D:\unreal\UE_%%V\Engine" set "UE=D:\unreal\UE_%%V"
-if "%UE%"=="" for %%V in (5.7 5.6 5.5) do if "%UE%"=="" if exist "C:\Program Files\Epic Games\UE_%%V\Engine" set "UE=C:\Program Files\Epic Games\UE_%%V"
+rem Candidates in ascending order - the last existing one wins (newest engine)
+if "%UE%"=="" (
+  for %%R in ("C:\Program Files\Epic Games" "D:\Program Files\Epic Games" "D:\unreal") do (
+    for %%V in (5.5 5.6 5.7 5.8 5.9) do (
+      if exist "%%~R\UE_%%V\Engine\Build\BatchFiles\Build.bat" set "UE=%%~R\UE_%%V"
+    )
+  )
+  if exist "D:\unreal\Engine\Build\BatchFiles\Build.bat" set "UE=D:\unreal"
+  if exist "D:\Program Files\Epic Games\UE_5.8\Engine\Build\BatchFiles\Build.bat" set "UE=D:\Program Files\Epic Games\UE_5.8"
+)
 if not exist "%UE%\Engine\Build\BatchFiles\Build.bat" set "UE="
 if "%UE%"=="" (
   echo [!] Unreal Engine not found. Run:  Setup.bat "path\to\UE_5.x"
