@@ -2,12 +2,15 @@
 setlocal
 rem ============================================================
 rem  Umayyad Strike - one-click build + map generation (Windows)
-rem  Usage:  Setup.bat                      (auto-detects UE 5.5-5.7)
+rem  Usage:  Setup.bat                      (auto-detects D:\unreal, then Program Files)
 rem          Setup.bat "D:\Epic\UE_5.5"      (custom engine path)
 rem ============================================================
 set "PROJ=%~dp0UmayyadStrike.uproject"
 set "UE=%~1"
+if "%UE%"=="" if exist "D:\unreal\Engine\Build\BatchFiles\Build.bat" set "UE=D:\unreal"
+if "%UE%"=="" for %%V in (5.7 5.6 5.5) do if "%UE%"=="" if exist "D:\unreal\UE_%%V\Engine" set "UE=D:\unreal\UE_%%V"
 if "%UE%"=="" for %%V in (5.7 5.6 5.5) do if "%UE%"=="" if exist "C:\Program Files\Epic Games\UE_%%V\Engine" set "UE=C:\Program Files\Epic Games\UE_%%V"
+if not exist "%UE%\Engine\Build\BatchFiles\Build.bat" set "UE="
 if "%UE%"=="" (
   echo [!] Unreal Engine not found. Run:  Setup.bat "path\to\UE_5.x"
   exit /b 1
