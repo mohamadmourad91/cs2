@@ -1,0 +1,25 @@
+{
+	"FileVersion": 3,
+	"EngineAssociation": "5.5",
+	"Category": "",
+	"Description": "Umayyad Strike - tactical 5v5 shooter set in Umayyad Square, Damascus",
+	"Modules": [
+		{
+			"Name": "UmayyadStrike",
+			"Type": "Runtime",
+			"LoadingPhase": "Default",
+			"AdditionalDependencies": [ "Engine", "EnhancedInput", "UMG" ]
+		}
+	],
+	"Plugins": [
+		{ "Name": "EnhancedInput", "Enabled": true },
+		{ "Name": "PythonScriptPlugin", "Enabled": true },
+		{ "Name": "EditorScriptingUtilities", "Enabled": true },
+		{ "Name": "Niagara", "Enabled": true },
+		{ "Name": "Metasound", "Enabled": true },
+		{ "Name": "ModelingToolsEditorMode", "Enabled": true, "TargetAllowList": [ "Editor" ] },
+		{ "Name": "ProceduralContentGeneration", "Enabled": true },
+		{ "Name": "Water", "Enabled": true },
+		{ "Name": "Bridge", "Enabled": true, "TargetAllowList": [ "Editor" ] }
+	]
+}
